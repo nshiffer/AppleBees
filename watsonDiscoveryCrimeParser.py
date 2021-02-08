@@ -62,8 +62,5 @@ for query in queryResults:
     print(f'Offense: {offenseList}')
 
     print(f'Location: {query["results"][i]["subtitle"][0]}')
-    
+
     print(f'Disposition: {query["results"][i]["author"][0]}\n')
-  
-
-
