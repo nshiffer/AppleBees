@@ -7,7 +7,7 @@ from CrimeReport import CrimeReport
 import datetime
 
 
-class WatsonInterface:
+class WatsonSearchInterface:
     def __init__(self):
         self.authenticator = IAMAuthenticator(Constants.AUTHENTICATION)
         self.discovery = DiscoveryV1(
