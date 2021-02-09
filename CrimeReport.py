@@ -1,5 +1,13 @@
 class CrimeReport:
-    def __init__(self, crimeID, reportDate, crimeStart, crimeEnd, offenses, location, disposition):
+    def __init__(
+            self,
+            crimeID,
+            reportDate,
+            crimeStart,
+            crimeEnd,
+            offenses,
+            location,
+            disposition):
         self.crimeID = crimeID
         self.reportDate = reportDate
         self.crimeStart = crimeStart
