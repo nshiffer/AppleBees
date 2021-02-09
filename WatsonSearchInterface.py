@@ -54,7 +54,7 @@ class WatsonSearchInterface:
                 print(f'Disposition: {query["results"][i]["author"][0]}\n')
 
     def createCrimeListObjects(self, search):
-        results = self.self.querySearch(search)
+        results = self.querySearch(search)
         crimeObjects = []
         for query in results:
             for i in range(len(query["results"])):
