@@ -16,20 +16,6 @@ class WatsonInterface:
         )
         self.discovery.set_service_url(Constants.WATSON_URL)
 
-    def parseCrimeList(self):
-        results = []
-        natural_language_options = ['P2020', 'P2021', 'CSA2020', 'CSA2021']
-
-        for natural_language_selection in natural_language_options:
-            queryResults = self.discovery.query(
-                environment_id=Constants.ENVIORNMENT_ID,
-                collection_id=Constants.COLLECTION_ID,
-                natural_language_query=natural_language_selection,
-                count=200
-            ).get_result()
-
-            results.append(queryResults)
-        return results
 
     def querySearch(self, search):
         results = []
@@ -43,8 +29,8 @@ class WatsonInterface:
         results.append(queryResults)
         return results
 
-    def printCrimes(self):
-        results = self.parseCrimeList()
+    def printCrimes(self, search):
+        results = self.querySearch(search)
         for query in results:
             for i in range(len(query["results"])):
                 print(f'Crime Number: {query["results"][i]["title"][0]}')
@@ -67,8 +53,8 @@ class WatsonInterface:
 
                 print(f'Disposition: {query["results"][i]["author"][0]}\n')
 
-    def createCrimeListObjects(self):
-        results = self.parseCrimeList()
+    def createCrimeListObjects(self, search):
+        results = self.self.querySearch(search)
         crimeObjects = []
         for query in results:
             for i in range(len(query["results"])):
