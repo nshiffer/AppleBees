@@ -23,7 +23,7 @@ class WatsonSearchInterface:
             environment_id=Constants.ENVIORNMENT_ID,
             collection_id=Constants.COLLECTION_ID,
             natural_language_query=search,
-            count=200
+            count=1000
         ).get_result()
 
         results.append(queryResults)
