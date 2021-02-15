@@ -23,7 +23,7 @@ class WatsonSearchInterface:
             environment_id=Constants.ENVIORNMENT_ID,
             collection_id=Constants.COLLECTION_ID,
             natural_language_query=search,
-            count=200
+            count=300
         ).get_result()
 
         results.append(queryResults)
@@ -55,7 +55,7 @@ class WatsonSearchInterface:
 
                     print(f'Disposition: {query["results"][i]["author"][0]}\n')
                 except KeyError:
-                    print("------------FUCK YOU DISCOVERY-------------")
+                    print("Watson Error in formating")
 
     def createCrimeListObjects(self, search):
         results = self.querySearch(search)
@@ -93,5 +93,5 @@ class WatsonSearchInterface:
                         disposition)
                     crimeObjects.append(crime)
                 except KeyError:
-                    print("------------FUCK YOU DISCOVERY-------------")
+                    print("Watson Error in formating")
         return crimeObjects
