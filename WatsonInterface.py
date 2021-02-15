@@ -7,7 +7,7 @@ from CrimeReport import CrimeReport
 import datetime
 
 
-class WatsonSearchInterface:
+class WatsonInterface:
     def __init__(self):
         self.authenticator = IAMAuthenticator(Constants.AUTHENTICATION)
         self.discovery = DiscoveryV1(
@@ -16,25 +16,26 @@ class WatsonSearchInterface:
         )
         self.discovery.set_service_url(Constants.WATSON_URL)
 
-
-    def querySearch(self, search):
+    def parseCrimeList(self):
         results = []
-        queryResults = self.discovery.query(
-            environment_id=Constants.ENVIORNMENT_ID,
-            collection_id=Constants.COLLECTION_ID,
-            natural_language_query=search,
-            count=300
-        ).get_result()
+        natural_language_options = ['P2020', 'P2021', 'CSA2020', 'CSA2021']
 
-        results.append(queryResults)
+        for natural_language_selection in natural_language_options:
+            queryResults = self.discovery.query(
+                environment_id=Constants.ENVIORNMENT_ID,
+                collection_id=Constants.COLLECTION_ID,
+                natural_language_query=natural_language_selection,
+                count=300
+            ).get_result()
+
+            results.append(queryResults)
         return results
 
-    def printCrimes(self, search):
-        results = self.querySearch(search)
+    def printCrimes(self):
+        results = self.parseCrimeList()
         for query in results:
             for i in range(len(query["results"])):
                 try:
-                    print(i)
                     print(f'Crime Number: {query["results"][i]["title"][0]}')
 
                     # Finds dates and returns list
@@ -57,8 +58,8 @@ class WatsonSearchInterface:
                 except KeyError:
                     print("Watson Error in formating")
 
-    def createCrimeListObjects(self, search):
-        results = self.querySearch(search)
+    def createCrimeListObjects(self):
+        results = self.parseCrimeList()
         crimeObjects = []
         for query in results:
             for i in range(len(query["results"])):
@@ -69,7 +70,7 @@ class WatsonSearchInterface:
                     # Crime is not guaranteed to have a Date/Time Ended
                     dates = re.findall(
                         "\\d{2}/\\d{2}/\\d{2} \\d{2}:\\d{2}",
-                        query["results"][i]["question"])
+                        query["results"][i]["question"][0])
                     date_format_string = '%m/%d/%y %H:%M'
                     reportDate = datetime.datetime.strptime(
                         dates[0], date_format_string)
@@ -80,7 +81,7 @@ class WatsonSearchInterface:
                     # Some crimes have multiple offenses which are usually separated by ';' character
                     # This is not guaranteed as formatting is a bit different for
                     # some crime reports
-                    offenseList = (query["results"][i]["text"][0]).split(';')
+                    offenseList = (query["results"][i]["text"]).split(';')
                     location = query["results"][i]["subtitle"][0]
                     disposition = query["results"][i]["author"][0]
                     crime = CrimeReport(
@@ -94,4 +95,5 @@ class WatsonSearchInterface:
                     crimeObjects.append(crime)
                 except KeyError:
                     print("Watson Error in formating")
+
         return crimeObjects
