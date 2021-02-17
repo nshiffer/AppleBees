@@ -1,10 +1,11 @@
-import json
+import datetime
 import re
-from ibm_watson import DiscoveryV1
+
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+from ibm_watson import DiscoveryV1
+
 import Constants
 from CrimeReport import CrimeReport
-import datetime
 
 
 class WatsonSearchInterface:
@@ -69,7 +70,7 @@ class WatsonSearchInterface:
                     # Crime is not guaranteed to have a Date/Time Ended
                     dates = re.findall(
                         "\\d{2}/\\d{2}/\\d{2} \\d{2}:\\d{2}",
-                        query["results"][i]["question"])
+                        query["results"][i]["question"][0])
                     date_format_string = '%m/%d/%y %H:%M'
                     reportDate = datetime.datetime.strptime(
                         dates[0], date_format_string)
@@ -80,7 +81,7 @@ class WatsonSearchInterface:
                     # Some crimes have multiple offenses which are usually separated by ';' character
                     # This is not guaranteed as formatting is a bit different for
                     # some crime reports
-                    offenseList = (query["results"][i]["text"][0]).split(';')
+                    offenseList = (query["results"][i]["text"]).split(';')
                     location = query["results"][i]["subtitle"][0]
                     disposition = query["results"][i]["author"][0]
                     crime = CrimeReport(

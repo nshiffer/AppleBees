@@ -1,2 +1,14 @@
 venv/
+
+*.pyc
 __pycache__/
+
+insance/
+
+.pytest_cahce/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/

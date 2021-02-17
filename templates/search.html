@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<h1><center>Search OSU Crime</center></h1>
+<form class="example" method="post" action=""
+      style="margin:auto;max-width:600px">
+    <input type="text" placeholder="Search a crime related topic" name="crime">
+    <button type="submit"><i class=""fa fa-search></i>
+    </button>
+</form>
+<p></p>
+<center>
+    {% for item in data %}
+    <tr>
+        <td>Crime: {{item.offenses}}</td>
+        </br>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    {% endfor %}
+</center>
+{% endblock %}
