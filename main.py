@@ -27,31 +27,29 @@ app.layout = html.Div([
     html.H1(id='header', children='Test'),
     html.Hr(className='solid'),
     html.Br(),
-    dcc.Dropdown(
-        id='dropdown-year',
-        # options=[{'label': year, 'value': year} for year in years],
-        value='',
-        multi=True
-    ),
     html.Br(),
     html.Br(),
     dash_table.DataTable(
+        style_cell={
+            'whiteSpace': 'normal',
+            'height': 'auto',
+        },
         id='datatable-interactivity',
         columns=columnValues,
         data=df.to_dict('records'),
         # callback info
-        editable=True,
+        editable=False,
         filter_action="native",
         sort_action="native",
-        sort_mode="multi",
+        sort_mode="single",
         column_selectable="single",
         row_selectable="multi",
-        row_deletable=True,
+        row_deletable=False,
         selected_columns=[],
         selected_rows=[],
         page_action="native",
         page_current=0,
-        page_size=10,
+        page_size=20,
     ),
     html.Div(id='datatable-interactivity-container')
 ])
