@@ -6,22 +6,27 @@
 
 {% block body %}
 <h1><center>Search OSU Crime</center></h1>
-<form class="example" method="post" action=""
+<form class="search" method="post" action=""
       style="margin:auto;max-width:600px">
     <input type="text" placeholder="Search a crime related topic" name="crime">
-    <button type="submit"><i class=""fa fa-search></i>
-    </button>
+    <p> <input type="submit" value="search">
+    </p>
 </form>
 <p></p>
 <center>
     {% for item in data %}
-    <tr>
-        <td>Crime: {{item.offenses}}</td>
-        </br>
-    </tr>
-    <tr>
-        <td></td>
-    </tr>
+
+        <p>Crime:
+            {% for crime in item.offenses %}
+            {{crime}}
+            {% endfor %}
+            <br>
+        Crime Number: {{item.crimeID}}<br>
+        Crime Date: {{item.crimeStart}}<br>
+        Crime Location: {{item.location}}<br>
+        Crime Status: {{item.disposition}}</p>
+        <p> </p>
+    <p> </p>
     {% endfor %}
 </center>
 {% endblock %}
