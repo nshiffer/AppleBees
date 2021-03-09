@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
-{% block header %}
-  <h1>{% block title %}Log In{% endblock %}</h1>
+{% block head %}
+
 {% endblock %}
 
-{% block content %}
-<h1>Search Bar</h1>
+{% block body %}
+<h1>Hello Everyone this is the index</h1>
+<p>Check out the search page: <a href="{{ url_for('searchbar') }}"> HERE </a></p>
 {% endblock %}

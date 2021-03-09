@@ -5,4 +5,9 @@ search = input()
 
 wi = WatsonSearchInterface()
 
-results2 = wi.printCrimes(search)
+wi.printCrimes(search)
+
+
+results = wi.createCrimeListObjects(search)
+
+print(results[0].offenses)

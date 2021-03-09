@@ -1,10 +1,10 @@
-import json
+import datetime
 import re
-from ibm_watson import DiscoveryV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+from ibm_watson import DiscoveryV1
+
 import Constants
 from CrimeReport import CrimeReport
-import datetime
 
 
 class WatsonSearchInterface:
@@ -17,12 +17,13 @@ class WatsonSearchInterface:
         self.discovery.set_service_url(Constants.WATSON_URL)
 
 
-    def querySearch(self, search):
+    def querySearch(self, search, field):
         results = []
         queryResults = self.discovery.query(
             environment_id=Constants.ENVIORNMENT_ID,
             collection_id=Constants.COLLECTION_ID,
-            natural_language_query=search,
+            query=search,
+            sort=field,
             count=300
         ).get_result()
 
@@ -57,8 +58,8 @@ class WatsonSearchInterface:
                 except KeyError:
                     print("Watson Error in formating")
 
-    def createCrimeListObjects(self, search):
-        results = self.querySearch(search)
+    def createCrimeListObjects(self, search, field):
+        results = self.querySearch(search, field)
         crimeObjects = []
         for query in results:
             for i in range(len(query["results"])):
@@ -69,7 +70,7 @@ class WatsonSearchInterface:
                     # Crime is not guaranteed to have a Date/Time Ended
                     dates = re.findall(
                         "\\d{2}/\\d{2}/\\d{2} \\d{2}:\\d{2}",
-                        query["results"][i]["question"])
+                        query["results"][i]["question"][0])
                     date_format_string = '%m/%d/%y %H:%M'
                     reportDate = datetime.datetime.strptime(
                         dates[0], date_format_string)
@@ -80,7 +81,7 @@ class WatsonSearchInterface:
                     # Some crimes have multiple offenses which are usually separated by ';' character
                     # This is not guaranteed as formatting is a bit different for
                     # some crime reports
-                    offenseList = (query["results"][i]["text"][0]).split(';')
+                    offenseList = (query["results"][i]["text"]).split(';')
                     location = query["results"][i]["subtitle"][0]
                     disposition = query["results"][i]["author"][0]
                     crime = CrimeReport(

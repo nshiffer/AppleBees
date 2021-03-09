@@ -5,6 +5,7 @@ from pymongo import UpdateOne
 import Constants
 from WatsonInterface import WatsonInterface
 from bson.objectid import ObjectId
+import pandas as pd
 
 # Starter code to get the connection going
 
@@ -32,3 +33,9 @@ class Database:
     # Only use if you want to delete ALL of the items in the database
     def delete(self):
         self.collection.remove()
+
+    def getTableData(self):
+        df =  pd.DataFrame(list(self.collection.find({})))
+        print(df)
+        del df['_id']
+        return df
