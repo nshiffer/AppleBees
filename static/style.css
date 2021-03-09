@@ -5,7 +5,7 @@ html {
 }
 
 div.results {
-
+    padding: 20px;
 }
 
 
@@ -14,8 +14,9 @@ input[type=text]:focus {
 }
 
 input[type=text] {
-  width: 100%;
-  margin: 8px 0;
+  width: 75%;
+  float: left;
+  margin: 8px;
   border-radius: 4px;
   font-size: 16px;
   box-sizing: border-box;
@@ -23,10 +24,11 @@ input[type=text] {
   background-image: url('searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;;
+  padding: 12px 20px 12px 40px;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
+  width: 20%;
   float: left;
   background-color: #bb0000;
   border: none;

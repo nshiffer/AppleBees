@@ -10,21 +10,15 @@ def index():
 @app.route('/search', methods=['GET', 'POST'])
 def searchbar():
     wi = WatsonSearchInterface()
-    if request.method == 'POST' :
+    if request.method == 'POST':
         crime = request.form['crime']
+        option = request.form['options']
+        print(option)
         data = wi.createCrimeListObjects(crime)
         if len(data) == 0 and crime == 'all':
             data = wi.createCrimeListObjects(' ')
         return render_template('search.html', data=data)
     return render_template('search.html')
-
-@app.route('/results')
-def search_results(search):
-    results = []
-    search_string = search.data['search']
-
-    if search.data['search'] == '':
-        qry = db_session
 
 if __name__ == '__main__':
     app.run(debug=True)
