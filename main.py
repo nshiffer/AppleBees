@@ -13,7 +13,6 @@ def searchbar():
     if request.method == 'POST':
         crime = request.form['crime']
         option = request.form['options']
-        print(option)
         data = wi.createCrimeListObjects(crime, option)
         if len(data) == 0 and crime == 'all':
             data = wi.createCrimeListObjects(' ')
