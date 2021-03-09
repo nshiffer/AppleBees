@@ -1,6 +1,5 @@
 import datetime
 import re
-
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_watson import DiscoveryV1
 
