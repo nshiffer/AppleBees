@@ -7,18 +7,17 @@
 {% block body %}
 <h1><center>Search OSU Crime</center></h1>
 <form class="search" method="post" action="" style="margin:auto;max-width:900px">
-    <label for="options">Choose a search option:</label>
-    <select id="options" name="options">
-        <option value="crime">Crime</option>
-        <option value="number">Number</option>
-        <option value="date">Date</option>
-        <option value="location">Location</option>
-        <option value="status">Status</option>
-    </select>
     <p>
         <input type="text" placeholder="Search a crime related topic" name="crime">
         <input type="submit" value="search">
     </p>
+    <select id="options" name="options">
+        <option value="text">Crime</option>
+        <option value="title">Number</option>
+        <option value="question">Date</option>
+        <option value="subtitle">Location</option>
+        <option value="author">Status</option>
+    </select>
 </form><br>
 <p></p>
 <div class="results">

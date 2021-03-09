@@ -18,12 +18,13 @@ class WatsonSearchInterface:
         self.discovery.set_service_url(Constants.WATSON_URL)
 
 
-    def querySearch(self, search):
+    def querySearch(self, search, field):
         results = []
         queryResults = self.discovery.query(
             environment_id=Constants.ENVIORNMENT_ID,
             collection_id=Constants.COLLECTION_ID,
-            natural_language_query=search,
+            query=search,
+            sort=field,
             count=300
         ).get_result()
 
@@ -58,8 +59,8 @@ class WatsonSearchInterface:
                 except KeyError:
                     print("Watson Error in formating")
 
-    def createCrimeListObjects(self, search):
-        results = self.querySearch(search)
+    def createCrimeListObjects(self, search, field):
+        results = self.querySearch(search, field)
         crimeObjects = []
         for query in results:
             for i in range(len(query["results"])):

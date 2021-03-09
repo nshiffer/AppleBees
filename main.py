@@ -14,7 +14,7 @@ def searchbar():
         crime = request.form['crime']
         option = request.form['options']
         print(option)
-        data = wi.createCrimeListObjects(crime)
+        data = wi.createCrimeListObjects(crime, option)
         if len(data) == 0 and crime == 'all':
             data = wi.createCrimeListObjects(' ')
         return render_template('search.html', data=data)
