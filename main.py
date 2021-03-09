@@ -9,12 +9,14 @@ import dash_html_components as html
 import dash_table
 from dash.dependencies import Input, Output
 from database import Database
+import Constants
 
 
 app = Flask(__name__)
 server = Flask(__name__)
 db = Database()
 df = db.getTableData()
+columnValues = Constants.columns
 app = dash.Dash(
     __name__,
     server=server,
@@ -35,7 +37,7 @@ app.layout = html.Div([
     html.Br(),
     dash_table.DataTable(
         id='datatable-interactivity',
-        columns=[{"name": i, "id": i} for i in df.columns],
+        columns=columnValues,
         data=df.to_dict('records'),
         # callback info
         editable=True,
