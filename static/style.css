@@ -4,50 +4,34 @@ html {
   padding: 1rem;
 }
 
-body {
-  max-width: 960px;
-  margin: 0 auto;
-  background: white;
+div.results {
+
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: serif;
-  color: #377ba8;
-  margin: 1rem 0;
+
+input[type=text]:focus {
+  border: 3px solid #555;
 }
 
-a {
-  color: #377ba8;
+input[type=text] {
+  width: 100%;
+  margin: 8px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;;
 }
 
-hr {
+input[type=button], input[type=submit], input[type=reset] {
+  float: left;
+  background-color: #bb0000;
   border: none;
-  border-top: 1px solid lightgray;
-}
-
-
-
-form.search input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #f1f1f1;
-}
-
-form.button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-}
-
-form.example button:hover {
-    background: #0b7dda
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
 }

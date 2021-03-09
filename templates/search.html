@@ -6,27 +6,35 @@
 
 {% block body %}
 <h1><center>Search OSU Crime</center></h1>
-<form class="search" method="post" action=""
-      style="margin:auto;max-width:600px">
-    <input type="text" placeholder="Search a crime related topic" name="crime">
-    <p> <input type="submit" value="search">
+<form class="search" method="post" action="">
+    <label for="options">Choose a search option:</label>
+    <select id="options" name="options">
+        <option value="crime">Crime</option>
+        <option value="number">Number</option>
+        <option value="date">Date</option>
+        <option value="location">Location</option>
+        <option value="status">Status</option>
+    </select>
+    <p>
+        <input type="text" placeholder="Search a crime related topic" name="crime">
+        <input type="submit" value="search">
     </p>
 </form>
 <p></p>
-<center>
+<div class="results">
     {% for item in data %}
 
-        <p>Crime:
+    <p><b>Crime:</b>
             {% for crime in item.offenses %}
             {{crime}}
             {% endfor %}
             <br>
-        Crime Number: {{item.crimeID}}<br>
-        Crime Date: {{item.crimeStart}}<br>
-        Crime Location: {{item.location}}<br>
-        Crime Status: {{item.disposition}}</p>
+            <b>Crime Number:</b> {{item.crimeID}}<br>
+            <b>Crime Date:</b> {{item.crimeStart}}<br>
+            <b>Crime Location:</b> {{item.location}}<br>
+            <b>Crime Status:</b> {{item.disposition}}</p>
         <p> </p>
     <p> </p>
     {% endfor %}
-</center>
+</div>
 {% endblock %}

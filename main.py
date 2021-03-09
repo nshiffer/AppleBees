@@ -23,7 +23,7 @@ def search_results(search):
     results = []
     search_string = search.data['search']
 
-    if seach.data['search'] == '':
+    if search.data['search'] == '':
         qry = db_session
 
 if __name__ == '__main__':
