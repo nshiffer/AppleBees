@@ -2,45 +2,41 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from pymongo import MongoClient
+import pymongo
+import string
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+from io import StringIO  
+import base64
+
+color_pal = sns.color_palette("rocket")
+sns.set_palette(color_pal)
+
+client = pymongo.MongoClient("mongodb+srv://nicktest:test123@crimedatabase.3hugk.mongodb.net/<dbname>?retryWrites=true&w=majority")
+cursor = client['CrimeDatabase']['OSUCrimeReport'].find()
+# Expand the cursor and construct the DataFrame
+df =  pd.DataFrame(list(cursor))
 
 
-def _connect_mongo(host, port, username, password, db):
-    """ A util for making a connection to mongo """
+# https://stackoverflow.com/questions/50728328/python-how-to-show-matplotlib-in-flask
 
-    if username and password:
-        mongo_uri = 'mongodb://%s:%s@%s:%s/%s' % (username, password, host, port, db)
-        conn = MongoClient(mongo_uri)
-    else:
-        conn = MongoClient(host, port)
+# For sub string matching, join arrays as strings and make all lower case
+df.offenses = df.offenses.apply(lambda x: " ".join(x).lower().strip())
 
+# TODO this can be upgraded to a faster operation, but written like this for consistency
+exclude = set(string.punctuation)
+df.location = df.location.apply(lambda x: "".join(ch for ch in x if ch not in exclude).lower().strip())
 
-    return conn[db]
+mask = df.offenses.apply(lambda x: 'drug' in x)
+df1 = df[mask]
+agg = df1[['location','offenses']].groupby('location').agg('count').nlargest(5, 'offenses')
 
+sns.heatmap(agg, annot=True, fmt=".1f").set_title("Violance By Location")
+plt.show()
+dorms = ["archer house", "baker hall", "barrett house", "blackburn house", "bowen house", "bradley hall", "busch house", "canfield hall", "drakett tower", "fechko house", "german house", "halloran house", "hanley house", "haverfield house", "houck house", "houston house", "jones tower", "lawrence tower", "lincoln tower", "mack hall", "mendoza house", "morrill tower", "morrison tower", "neil avenue dorm", "norton house", "nosker house", "parkstradley hall", "paterson hall", "pennsylvania place", "pomerene house", "raney house", "scholars east", "scholars west", "scott house", "siebert hall", "smithsteeb hall", "taylor tower", "the residence on tenth", "torres house", "veterans house"]
+mask2 = df.location.apply(lambda x: x in dorms)
+dorm_df = df[mask2]
+dorm_agg = dorm_df[['location','offenses']].groupby('location', as_index=False, sort = True).agg('count').nlargest(5, 'offenses')
 
-def read_mongo(db, collection, query={}, host='localhost', port=27017, username=None, password=None, no_id=True):
-    """ Read from Mongo and Store into DataFrame """
-
-    # Connect to MongoDB
-    db = _connect_mongo(host=host, port=port, username=username, password=password, db=db)
-
-    # Make a query to the specific DB and Collection
-    myquery = { "offenses": { "$regex": "^S" } }
-    cursor = db[collection].find(query)
-
-    # Expand the cursor and construct the DataFrame
-    df =  pd.DataFrame(list(cursor))
-
-    # Delete the _id
-    if no_id:
-        del df['_id']
-
-    return df
-
-newTemp = pd.DataFrame({'crimeID': [1, 2, 3], 'reportDate': [1/2/10, 1/2/10, 1/2/10], 'crimeStart': [1/2/10, 1/2/10, 1/2/10], 'crimeEnd': [1/2/10, 1/2/10, 1/2/10], 'offenses': ['drugs', 'drugs', 'drugs'], 'location':['osu', 'osu','osu2'], 'disposition': ['rape','rape','rape']})
-newTemp2 = pd.DataFrame({'location':['osu', 'osu','osu2','osu2', 'osu','osu3','osu4'], 'disposition': ['rape','rape','rape','rape','rape','rape','rape']})
-agg = newTemp2.groupby('location')['disposition'].agg(['count'])
-#heat_map_pivot = newTemp.pivot_table(index='disposition', columns='location', values='disposition', aggfunc=pd.count)
-
-sns.heatmap(agg, annot=True, fmt=".1f")
+sns.barplot(x = dorm_agg.location, y = dorm_agg.offenses, data = dorm_agg).set_title("Drug Use By Dorm")
 plt.show()
