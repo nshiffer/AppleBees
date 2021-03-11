@@ -97,7 +97,7 @@ def plot_png_drug():
 topbar = Navbar('nav_b', 
                 View('Home Page', 'index'),
                 View('Search', 'searchbar'),
-                View('Data', '/'),
+                View('Data Table', '/'),
                 View('Statistics', 'plot_png_drug')
                 )
 nav.register_element('nav_bar', topbar)
