@@ -38,7 +38,9 @@ app.layout = html.Div([
     html.Nav(className = "nav nav-pills", children=[
         html.A('Searchbar', className="nav-item nav-link btn", href='/search'),
         html.Br(),
-        html.A('DataTable', className="nav-item nav-link active btn", href='/')
+        html.A('DataTable', className="nav-item nav-link active btn", href='/'),
+        html.Br(),
+        html.A('Statisitcs', className="nav-item nav-link active btn", href='/plot')
             ]),
     html.H1(id='header', children='Test'),
     html.Hr(className='solid'),
@@ -120,6 +122,7 @@ def plot_png_rape():
 topbar = Navbar('nav_b', 
                 View('Home Page', 'index'),
                 View('Search', 'searchbar'),
-                View('Data', '/')
+                View('Data Table', '/'),
+                View('Statistics', 'plot_png_drug')
                 )
 nav.register_element('nav_bar', topbar)
