@@ -4,7 +4,11 @@ import pandas as pd
 import seaborn as sns
 import pymongo
 import string
+from io import BytesIO
+import base64
 
+color_pal = sns.color_palette("rocket")
+sns.set_palette(color_pal)
 
 DORMS = ["archer house", "baker hall", "barrett house", "blackburn house", "bowen house", "bradley hall", "busch house", "canfield hall", "drakett tower", "fechko house", "german house", "halloran house", "hanley house", "haverfield house", "houck house", "houston house", "jones tower", "lawrence tower", "lincoln tower", "mack hall", "mendoza house", "morrill tower", "morrison tower", "neil avenue dorm", "norton house", "nosker house", "parkstradley hall", "paterson hall", "pennsylvania place", "pomerene house", "raney house", "scholars east", "scholars west", "scott house", "siebert hall", "smithsteeb hall", "taylor tower", "the residence on tenth", "torres house", "veterans house"]
 
@@ -31,18 +35,67 @@ def location_agg_with_count(df, groupby_column, agg_column, agg_var, nlarg):
 def get_dorms(df):
     mask2 = df.location.apply(lambda x: x in DORMS)
     dorm_df = df[mask2]
+    return dorm_df
 
 def test1():
     df = mongo_to_df()
     df = clean_data(df)
     df = location_agg_with_count(df,'location','offenses','drug',5)
-    return df
+    sns.barplot(x = df.location, y = df.offenses, data = df).set_title("Drug Cases By Location")
+    plt.xticks(rotation=45)
+    plt.autoscale()
+    img = BytesIO()
+    plt.savefig(img, format='png')
+    plt.close()
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+    return plot_url
 
 def test2():
     df = mongo_to_df()
     df = clean_data(df)
     df = location_agg_with_count(df,'location','offenses','drug',5)
-    return df
+    sns.barplot(x = df.location, y = df.offenses, data = df).set_title("Rape Cases By Location")
+    plt.xticks(rotation=45)
+    plt.autoscale()
+    img = BytesIO()
+    plt.savefig(img, format='png')
+    plt.close()
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+    return plot_url
+
+def test3():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df = get_dorms(df)
+    df = location_agg_with_count(df,'location','offenses','drug',5)
+    sns.barplot(x = df.location, y = df.offenses, data = df).set_title("Drug Cases By Dorm")
+    plt.xticks(rotation=45)
+    plt.autoscale()
+    img = BytesIO()
+    plt.savefig(img, format='png')
+    plt.close()
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+    return plot_url
+
+    
+def test4():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df = get_dorms(df)
+    df = location_agg_with_count(df,'location','offenses','rape',5)
+    sns.barplot(x = df.location, y = df.offenses, data = df).set_title("Rape Cases By Dorm")
+    plt.xticks(rotation=45)
+    plt.autoscale()
+    img = BytesIO()
+    plt.savefig(img, format='png')
+    plt.close()
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+    return plot_url
+
 
 
 

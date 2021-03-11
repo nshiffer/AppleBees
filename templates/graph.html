@@ -1,29 +1,10 @@
-<html>
-<head>
-<style>
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
+{% extends 'base.html' %}
 
-div.gallery:hover {
-  border: 1px solid #777;
-}
+{% block head %}
 
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
+{% endblock %}
 
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-</style>
-</head>
-<body>
+{% block body %}
 
 
 <div class="gallery">
@@ -35,3 +16,15 @@ div.desc {
   <img src="data:image/png;base64, {{ plot_url1 }}">
   <div class="desc">Rape Cases</div>
 </div>
+
+<div class="gallery">
+  <img src="data:image/png;base64, {{ plot_url3 }}">
+  <div class="desc">Drug Case by Dorm</div>
+</div>
+
+<div class="gallery">
+  <img src="data:image/png;base64, {{ plot_url4 }}">
+  <div class="desc">Rape Cases by Dorm</div>
+</div>
+
+{% endblock %}
