@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<h1><center>Search OSU Crime</center></h1>
+<form class="search" method="post" action="" style="margin:auto;max-width:900px">
+    <p>
+        <input type="text" placeholder="Search a crime related topic" name="crime">
+        <input type="submit" value="search">
+    </p>
+    <select id="options" name="options">
+        <option value="text">Crime</option>
+        <option value="title">Number</option>
+        <option value="question">Date</option>
+        <option value="subtitle">Location</option>
+        <option value="author">Status</option>
+    </select>
+</form><br>
+<p></p>
+<div class="results">
+    {% for item in data %}
+
+    <p><b>Crime:</b>
+            {% for crime in item.offenses %}
+            {{crime}}
+            {% endfor %}
+            <br>
+            <b>Crime Number:</b> {{item.crimeID}}<br>
+            <b>Crime Date:</b> {{item.crimeStart}}<br>
+            <b>Crime Location:</b> {{item.location}}<br>
+            <b>Crime Status:</b> {{item.disposition}}<br>
+    </p>
+    <p> </p>
+    {% endfor %}
+</div>
+{% endblock %}

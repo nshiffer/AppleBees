@@ -11,3 +11,10 @@ PASSWORD = "H0g*$aP0f5CR"
 DATABASE_NAME = "CrimeDatabase"
 MONGO_DB_URI = "mongodb+srv://neilmckibben:" + PASSWORD + \
     "@crimedatabase.3hugk.mongodb.net/" + DATABASE_NAME + "?retryWrites=true&w=majority"
+
+
+#Column ordering
+columns = [{'name': 'crimeID', 'id': 'crimeID'}, {'name': 'reportDate', 'id': 'reportDate'},
+{'name': 'offenses', 'id': 'offenses'}, {'name': 'location', 'id': 'location'},
+{'name': 'crimeStart', 'id': 'crimeStart'}, {'name': 'crimeEnd', 'id': 'crimeEnd'},
+{'name': 'disposition', 'id': 'disposition'}]

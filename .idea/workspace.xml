@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="80a33396-d85b-4557-9c78-0a7e419e94dd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WatsonSearchInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/WatsonSearchInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="database" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1o2QAHmPonsAbZ25L570CC0Zen6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.SearchDemo">
+    <configuration name="SearchDemo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AppleBees" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SearchDemo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="populate_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/populate_db.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.SearchDemo" />
+        <item itemvalue="Python.populate_db" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="80a33396-d85b-4557-9c78-0a7e419e94dd" name="Default Changelist" comment="" />
+      <created>1612482063349</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612482063349</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/database" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/database" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="139" width="1084" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612901573525">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state x="451" y="139" width="1084" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.910@67.27.1853.910" timestamp="1612901573525" />
+    <state x="689" y="283" width="599" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612816980724">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state x="689" y="283" width="599" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.910@67.27.1853.910" timestamp="1612816980724" />
+    <state width="915" height="231" key="GridCell.Tab.0.bottom" timestamp="1613502959153">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state width="915" height="231" key="GridCell.Tab.0.bottom/67.27.1853.910@67.27.1853.910" timestamp="1613502959153" />
+    <state width="915" height="231" key="GridCell.Tab.0.center" timestamp="1613502959153">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state width="915" height="231" key="GridCell.Tab.0.center/67.27.1853.910@67.27.1853.910" timestamp="1613502959153" />
+    <state width="915" height="231" key="GridCell.Tab.0.left" timestamp="1613502959152">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state width="915" height="231" key="GridCell.Tab.0.left/67.27.1853.910@67.27.1853.910" timestamp="1613502959152" />
+    <state width="915" height="231" key="GridCell.Tab.0.right" timestamp="1613502959153">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state width="915" height="231" key="GridCell.Tab.0.right/67.27.1853.910@67.27.1853.910" timestamp="1613502959153" />
+    <state x="482" y="116" key="SettingsEditor" timestamp="1612901859182">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state x="482" y="116" key="SettingsEditor/67.27.1853.910@67.27.1853.910" timestamp="1612901859182" />
+    <state x="167" y="125" width="1653" height="712" key="ShowDiffWithBranchDialog" timestamp="1612899452596">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state x="167" y="125" width="1653" height="712" key="ShowDiffWithBranchDialog/67.27.1853.910@67.27.1853.910" timestamp="1612899452596" />
+    <state x="588" y="217" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1613013494056">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state x="588" y="217" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.910@67.27.1853.910" timestamp="1613013494056" />
+    <state x="720" y="198" width="536" height="566" key="VcsDiffUtil.ChangesDialog" timestamp="1612899825962">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state x="720" y="198" width="536" height="566" key="VcsDiffUtil.ChangesDialog/67.27.1853.910@67.27.1853.910" timestamp="1612899825962" />
+    <state x="656" y="222" width="672" height="678" key="search.everywhere.popup" timestamp="1613500047922">
+      <screen x="67" y="27" width="1853" height="910" />
+    </state>
+    <state x="656" y="222" width="672" height="678" key="search.everywhere.popup/67.27.1853.910@67.27.1853.910" timestamp="1613500047922" />
+  </component>
+</project>
