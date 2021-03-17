@@ -79,13 +79,14 @@ def index():
 @server.route('/search', methods=['GET', 'POST'])
 def searchbar():
     wi = WatsonSearchInterface()
-    if request.method == 'POST':
-        crime = request.form['crime']
-        option = request.form['options']
-        data = wi.createCrimeListObjects(crime, option)
-        if len(data) == 0 and crime == 'all':
-            data = wi.createCrimeListObjects(' ')
-        return render_template('search.html', data=data)
+    if request.method == 'GET' and request.args.get('options') is not None:
+        crime = request.args.get('crime')
+        option = request.args.get('options')
+        if not crime.endswith(":"):
+            data = wi.createCrimeListObjects(crime, option)
+            if len(data) == 0 and crime == 'all':
+                data = wi.createCrimeListObjects(' ')
+            return render_template('search.html', data=data)
     return render_template('search.html')
 
 
