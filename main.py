@@ -76,5 +76,5 @@ def searchbar():
 
 @server.route('/plot')
 def plot_png_drug():
-    return render_template("graph.html",plot_url=stats.test1(), plot_url1 = stats.test2(), plot_url2 = stats.test3(), plot_url3 = stats.test4()) 
+    return render_template("graph.html",plot_url=stats.test1(), plot_url1 = stats.test2(), plot_url2 = stats.test3(), plot_url3 = stats.test4(), stat1 = stats.percent_crime_near_dorms(), stat2 = stats.percent_drug_related(), stat3 = stats.percent_pot_related(), stat4 = stats.percent_violence_related()) 
 
