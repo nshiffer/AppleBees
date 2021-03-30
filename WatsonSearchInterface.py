@@ -92,7 +92,8 @@ class WatsonSearchInterface:
                         offenseList,
                         location,
                         disposition)
-                    crimeObjects.append(crime)
+                    if len(query["results"][i]["title"]) == 1:
+                        crimeObjects.append(crime)
                 except KeyError:
                     print("Watson Error in formating")
         return crimeObjects
