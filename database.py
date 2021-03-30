@@ -36,6 +36,5 @@ class Database:
 
     def getTableData(self):
         df =  pd.DataFrame(list(self.collection.find({})))
-        print(df)
         del df['_id']
-        return df
+        return list(self.collection.find({}))

@@ -8,6 +8,12 @@ div.results {
     padding: 20px;
 }
 
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
 select {
   margin: 8px;
   width: 25%;
