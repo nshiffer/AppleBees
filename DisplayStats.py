@@ -96,10 +96,16 @@ def test4():
     plot_url = base64.b64encode(img.getvalue()).decode('utf8')
     return plot_url
 
+def dorms_v_nondorms():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df["dorm_flag"] = np.where(np.in1d(df['location'], DORMS), "Dorm", "Non-Dorm")
+    df = df[["location","offenses","dorm_flag"]].groupby("offenses", as_index=False, sort = True).agg('count')
 
+    g = sns.barplot(data=df, x="location", y="offenses", hue="dorm_flag", ci="sd", palette="dark")
+    plt.show()
 
-
-
+dorms_v_nondorms()
 
 
 
