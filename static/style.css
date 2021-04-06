@@ -74,7 +74,19 @@ div.gallery img {
   height: auto;
 }
 
+div.gallery p {
+  width: 100%;
+  height: auto;
+}
+
 div.desc {
   padding: 15px;
   text-align: center;
+}
+
+div.stat {
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  color: #8b0000;
 }
