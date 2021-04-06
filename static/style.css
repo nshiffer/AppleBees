@@ -72,3 +72,32 @@ div.desc {
   padding: 15px;
   text-align: center;
 }
+
+.navbar {
+    background-color: #bb0000;
+    overflow: hidden;
+}
+
+.navbar li {
+    display: inline;
+    padding: 14px 16px;
+}
+
+.navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding 14px 16px;
+    text-decoration: none;
+    font size 17px;
+}
+
+.navbar a:hover {
+    background-color: #8b0000;
+}
+
+.active {
+    background-color: #8b0000;
+}
+
+

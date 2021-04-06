@@ -36,11 +36,11 @@ app = dash.Dash(
 app.layout = html.Div(id='dash-container')
 app.layout = html.Div([
     html.Nav(className = "nav nav-pills", children=[
-        html.A('Searchbar', className="nav-item nav-link btn", href='/search'),
+        html.A('Search', className="navbar", href='/search'),
         html.Br(),
-        html.A('DataTable', className="nav-item nav-link active btn", href='/'),
+        html.A('Data Table', className=".active", href='/'),
         html.Br(),
-        html.A('Statistics', className="nav-item nav-link active btn", href='/plot')
+        html.A('Statistics', className="navbar", href='/plot')
             ]),
     html.H1(id='header', children='Test'),
     html.Hr(className='solid'),
@@ -99,6 +99,6 @@ topbar = Navbar('nav_b',
                 View('Home Page', 'index'),
                 View('Search', 'searchbar'),
                 View('Data Table', '/'),
-                View('Statistics', 'plot_png_drug')
+                View('Stati stics', 'plot_png_drug')
                 )
 nav.register_element('nav_bar', topbar)
