@@ -45,7 +45,11 @@
         <td>{{"".join(item.offenses)}}</td>
         <td>{{item.location}}</td>
         <td>{{item.crimeStart}}</td>
+        {% if item.crimeEnd%}
         <td>{{item.crimeEnd}}</td>
+        {% else %}
+        <td>Unknown</td>
+        {% endif %}
         <td>{{item.disposition}}</td>
       </tr>
     {% endfor %}

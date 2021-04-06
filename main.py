@@ -52,7 +52,6 @@ def plot_png_drug():
 #here we define our menu items
 topbar = Navbar('nav_b',
                 View('Home Page', 'index'),
-                View('Search', 'searchbar'),
                 View('Data Table', 'main'),
                 View('Statistics', 'plot_png_drug')
                 )
