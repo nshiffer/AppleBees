@@ -8,6 +8,10 @@
   {% block head %}{% endblock %}
 </head>
 <body>
+  {% block navbar %}
+  {{nav.nav_bar.render()}}
+  {% endblock %}
   {% block body %}{% endblock %}
 </body>
 </html>
+
