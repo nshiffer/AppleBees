@@ -31,14 +31,10 @@ columnValues = Constants.columns
 def index():
     return render_template('index.html')
 
-@server.route('/')
+@server.route('/',  methods=['GET', 'POST'])
 def main():
     db = Database()
     data = db.getTableData()
-    return render_template('database.html', data=data)
-
-@server.route('/search', methods=['GET', 'POST'])
-def searchbar():
     wi = WatsonSearchInterface()
     if request.method == 'GET' and request.args.get('options') is not None:
         crime = request.args.get('crime')
@@ -47,9 +43,8 @@ def searchbar():
             data = wi.createCrimeListObjects(crime, option)
             if len(data) == 0 and crime == 'all':
                 data = wi.createCrimeListObjects(' ')
-            return render_template('search.html', data=data)
-    return render_template('search.html')
-
+            return render_template('database.html', data=data)
+    return render_template('database.html', data = data)
 
 @server.route('/plot')
 def plot_png_drug():
