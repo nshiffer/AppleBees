@@ -112,7 +112,7 @@ def percent_crime_near_dorms():
     count_total = df.shape[0]
     dorm_df = get_dorms(df)
     count_dorm = dorm_df.shape[0]
-    return count_dorm/count_total*100
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
 def percent_drug_related():
     df = mongo_to_df()
@@ -121,7 +121,17 @@ def percent_drug_related():
     mask = df["offenses"].apply(lambda x: "drug" in x)
     df1 = df[mask]
     count_dorm = df1.shape[0]
-    return count_dorm/count_total *100
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
+
+def percent_drug_related_dorm():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df = get_dorms(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "drug" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
 def percent_pot_related():
     df = mongo_to_df()
@@ -130,7 +140,17 @@ def percent_pot_related():
     mask = df["offenses"].apply(lambda x: "marijuana" in x)
     df1 = df[mask]
     count_dorm = df1.shape[0]
-    return count_dorm/count_total *100
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
+
+def percent_pot_related_dorm():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df = get_dorms(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "marijuana" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
 def percent_violence_related():
     df = mongo_to_df()
@@ -139,6 +159,15 @@ def percent_violence_related():
     mask = df["offenses"].apply(lambda x: "violence" in x)
     df1 = df[mask]
     count_dorm = df1.shape[0]
-    return (count_dorm/count_total) *100
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
+def percent_violence_related_dorm():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df = get_dorms(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "violence" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
