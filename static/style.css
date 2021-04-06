@@ -8,6 +8,12 @@ div.results {
     padding: 20px;
 }
 
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
 select {
   margin: 8px;
   width: 25%;
@@ -68,10 +74,16 @@ div.gallery img {
   height: auto;
 }
 
+div.gallery p {
+  width: 100%;
+  height: auto;
+}
+
 div.desc {
   padding: 15px;
   text-align: center;
 }
+
 
 .navbar {
     background-color: #bb0000;
@@ -100,4 +112,10 @@ div.desc {
     background-color: #8b0000;
 }
 
+div.stat {
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  color: #8b0000;
+}
 
