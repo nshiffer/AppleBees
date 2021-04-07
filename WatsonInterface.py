@@ -57,6 +57,7 @@ class WatsonInterface:
                     offenseCleansed = query["results"][i]["text"].replace('_', '')
                     for i in range(len(matchIndex)):
                         offenseCleansed = offenseCleansed[:matchIndex[i]-1] + offenseCleansed[matchIndex[i]:]
+                        matchIndex[:] = [match-1 for match in matchIndex]
                     
 
                     # Some crimes have multiple offenses which are usually separated by ';' character
@@ -108,6 +109,7 @@ class WatsonInterface:
                     offenseCleansed = query["results"][i]["text"].replace('_', '')
                     for i in range(len(matchIndex)):
                         offenseCleansed = offenseCleansed[:matchIndex[i]-1] + offenseCleansed[matchIndex[i]:]
+                        matchIndex[:] = [match-1 for match in matchIndex]
                     
 
                     # Some crimes have multiple offenses which are usually separated by ';' character
@@ -118,7 +120,7 @@ class WatsonInterface:
                     for i in range(len(offenseList)):
                         if offenseList[i][0] == ' ':
                             offenseList[i] = offenseList[i].replace(' ', '', 1)
-                            
+
                     location = query["results"][i]["subtitle"][0]
                     disposition = query["results"][i]["author"][0]
                     crime = CrimeReport(
