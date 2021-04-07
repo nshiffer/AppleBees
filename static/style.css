@@ -135,7 +135,7 @@ div.desc {
     color: black;
 }
 
-.navbar .search {
+.navbar .navsearch {
     float: right;
 }
 
@@ -149,7 +149,7 @@ div.desc {
     border-radius: 4px;
 }
 
-.navbar .search input[type=button], input[type=submit], input[type=reset] {
+.navbar .navsearch input[type=button], input[type=submit], input[type=reset] {
   float: right;
   padding: 6px 17px;
   margin-top: 8px;
@@ -162,12 +162,12 @@ div.desc {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+.navbar .navsearch input[type=submit]:hover {
     background-color: white;
 }
 
 
-.navbar .search select {
+.navbar .navsearch select {
   float: right;
   padding: 6px 10px 4px;
   margin-top: 8px;
@@ -177,6 +177,50 @@ input[type=submit]:hover {
   border: none;
   border-radius: 4px;
   background-color: white;
+}
+
+
+.search select {
+  margin: 8px;
+  width: 25%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.search input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+.search input[type=text] {
+  width: 75%;
+  float: left;
+  margin: 8px;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
+.search [type=submit]{
+  width: 20%;
+  border-radius: 4px;
+  float: left;
+  background-color: #bb0000;
+  border: none;
+  color: white;
+  padding: 13px 32px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.search input[type=submit]:hover {
+  background-color: #8b0000;
 }
 
 

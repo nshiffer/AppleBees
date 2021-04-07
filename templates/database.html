@@ -8,7 +8,7 @@
 <nav class = "navbar">
             <a class="active" href="/" title="Data Table">Data Table</a>
             <a href="/plot" title="Statistics">Statistics</a>
-            <form class="search" method="GET" action="/" style="margin:auto;max-width:900px">
+            <form class="navsearch" method="GET" action="/" style="margin:auto;max-width:900px">
               <select id="options" name="options">
                 <option value="text">Crime</option>
                 <option value="title">Number</option>
@@ -21,6 +21,20 @@
             </form>
 </nav>
     <br>
+<h1><center>Search OSU Crime</center></h1>
+<form class="search" method="GET" action="" style="margin:auto;max-width:900px">
+    <p>
+        <input type="text" placeholder="Search a crime related topic" name="crime">
+        <input type="submit" value="search">
+    </p>
+    <select id="options" name="options">
+        <option value="text">Crime</option>
+        <option value="title">Number</option>
+        <option value="question">Date</option>
+        <option value="subtitle">Location</option>
+        <option value="author">Status</option>
+    </select>
+</form><br>
 <p></p>
 <div class="results">
   <table style="width:100%">
