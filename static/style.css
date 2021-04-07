@@ -14,50 +14,6 @@ table, th, td {
   text-align: center;
 }
 
-select {
-  margin: 8px;
-  width: 25%;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: white;
-}
-
-input[type=text]:focus {
-  border: 3px solid #555;
-}
-
-input[type=text] {
-  width: 75%;
-  float: left;
-  margin: 8px;
-  border-radius: 4px;
-  font-size: 16px;
-  box-sizing: border-box;
-  background-color: white;
-  background-image: url('searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-}
-
-input[type=button], input[type=submit], input[type=reset] {
-  width: 20%;
-  border-radius: 4px;
-  float: left;
-  background-color: #bb0000;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #8b0000;
-}
-
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
@@ -151,3 +107,76 @@ div.desc {
 .stats__period {
 	font-size: 14px;
 }
+
+.navbar {
+    background-color: #bb0000;
+    overflow: hidden;
+}
+
+
+/* NAV BAR */
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font size 17px;
+}
+
+.navbar a:hover {
+    background-color: #8b0000;
+}
+
+.navbar a.active {
+    background-color: white;
+    color: black;
+}
+
+.navbar .search {
+    float: right;
+}
+
+.navbar input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border: none;
+    width: 250px;
+    border-radius: 4px;
+}
+
+.navbar .search input[type=button], input[type=submit], input[type=reset] {
+  float: right;
+  padding: 6px 17px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #555;
+  color: white;
+  font-size: 17px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: white;
+}
+
+
+.navbar .search select {
+  float: right;
+  padding: 6px 10px 4px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #555;
+  font-size: 17px;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+}
+
+
