@@ -27,18 +27,10 @@ nav = Nav(server)
 
 columnValues = Constants.columns
 
-@server.route('/index')
-def index():
-    return render_template('index.html')
-
-@server.route('/')
+@server.route('/',  methods=['GET', 'POST'])
 def main():
     db = Database()
     data = db.getTableData()
-    return render_template('database.html', data=data)
-
-@server.route('/search', methods=['GET', 'POST'])
-def searchbar():
     wi = WatsonSearchInterface()
     if request.method == 'GET' and request.args.get('options') is not None:
         crime = request.args.get('crime')
@@ -47,17 +39,14 @@ def searchbar():
             data = wi.createCrimeListObjects(crime, option)
             if len(data) == 0 and crime == 'all':
                 data = wi.createCrimeListObjects(' ')
-            return render_template('search.html', data=data)
-    return render_template('search.html')
-
+            return render_template('database.html', data=data)
+    return render_template('database.html', data = data)
 
 @server.route('/plot')
 def plot_png_drug():
     return render_template("graph.html",plot_url=stats.test1(), plot_url1 = stats.test2(), plot_url2 = stats.test3(), plot_url3 = stats.test4(), stat1 = stats.percent_crime_near_dorms(), stat2 = stats.percent_drug_related(), stat3 = stats.percent_pot_related(), stat4 = stats.percent_violence_related(), dorm_drug = stats.percent_drug_related_dorm(), dorm_pot = stats.percent_pot_related_dorm(), dorm_violence = stats.percent_violence_related_dorm())
 #here we define our menu items
 topbar = Navbar('nav_b',
-                View('Home Page', 'index'),
-                View('Search', 'searchbar'),
                 View('Data Table', 'main'),
                 View('Statistics', 'plot_png_drug')
                 )
