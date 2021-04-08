@@ -78,10 +78,24 @@ class WatsonSearchInterface:
                         dates[1], date_format_string)
                     crimeEnd = None if len(dates) < 3 else datetime.datetime.strptime(
                         dates[2], date_format_string)
+                    # Some crimes would have a '_' to separate the crime from the details
+                    # Removed to make data more pure and easier for the user to read
+                    matchIndex = []
+                    for match in re.finditer(r'_', query["results"][i]["text"]):
+                        matchIndex.append(match.end()-1)
+                    
+                    offenseCleansed = query["results"][i]["text"].replace('_', '')
+                    for j in range(len(matchIndex)):
+                        offenseCleansed = offenseCleansed[:matchIndex[j]-1] + offenseCleansed[matchIndex[j]:]
+                        matchIndex[:] = [match-1 for match in matchIndex]
+                    
+
                     # Some crimes have multiple offenses which are usually separated by ';' character
                     # This is not guaranteed as formatting is a bit different for
                     # some crime reports
-                    offenseList = (query["results"][i]["text"]).split(';')
+                    
+                    offenseList = (offenseCleansed).split(';')
+
                     location = query["results"][i]["subtitle"][0]
                     disposition = query["results"][i]["author"][0]
                     crime = CrimeReport(

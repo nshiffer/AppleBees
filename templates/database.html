@@ -5,6 +5,22 @@
 {% endblock %}
 
 {% block body %}
+<nav class = "navbar">
+            <a class="active" href="/" title="Data Table">Data Table</a>
+            <a href="/plot" title="Statistics">Statistics</a>
+            <form class="navsearch" method="GET" action="/" style="margin:auto;max-width:900px">
+              <select id="options" name="options">
+                <option value="text">Crime</option>
+                <option value="title">Number</option>
+                <option value="question">Date</option>
+                <option value="subtitle">Location</option>
+                <option value="author">Status</option>
+              </select>
+                <input type="text" placeholder="Search a crime related topic" name="crime">
+                <input type="submit" value="search">
+            </form>
+</nav>
+    <br>
 <h1><center>Search OSU Crime</center></h1>
 <form class="search" method="GET" action="" style="margin:auto;max-width:900px">
     <p>
@@ -45,7 +61,11 @@
         <td>{{"".join(item.offenses)}}</td>
         <td>{{item.location}}</td>
         <td>{{item.crimeStart}}</td>
+        {% if item.crimeEnd%}
         <td>{{item.crimeEnd}}</td>
+        {% else %}
+        <td>Unknown</td>
+        {% endif %}
         <td>{{item.disposition}}</td>
       </tr>
     {% endfor %}

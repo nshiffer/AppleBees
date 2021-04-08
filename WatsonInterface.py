@@ -100,8 +100,6 @@ class WatsonInterface:
 
                     # Some crimes would have a '_' to separate the crime from the details
                     # Removed to make data more pure and easier for the user to read
-                     # Some crimes would have a '_' to separate the crime from the details
-                    # Removed to make data more pure and easier for the user to read
                     matchIndex = []
                     for match in re.finditer(r'_', query["results"][i]["text"]):
                         matchIndex.append(match.end()-1)

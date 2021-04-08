@@ -54,7 +54,7 @@ def test1():
 def test2():
     df = mongo_to_df()
     df = clean_data(df)
-    df = location_agg_with_count(df,'location','offenses','drug',5)
+    df = location_agg_with_count(df,'location','offenses','rape',5)
     sns.barplot(x = df.location, y = df.offenses, data = df).set_title("Rape Cases By Location")
     plt.xticks(rotation=45)
     plt.autoscale()
@@ -96,10 +96,78 @@ def test4():
     plot_url = base64.b64encode(img.getvalue()).decode('utf8')
     return plot_url
 
+def dorms_v_nondorms():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df["dorm_flag"] = np.where(np.in1d(df['location'], DORMS), "Dorm", "Non-Dorm")
+    df = df[["location","offenses","dorm_flag"]].groupby("offenses", as_index=False, sort = True).agg('count')
+
+    g = sns.barplot(data=df, x="location", y="offenses", hue="dorm_flag", ci="sd", palette="dark")
+    plt.show()
 
 
+def percent_crime_near_dorms():
+    df = mongo_to_df()
+    df = clean_data(df)
+    count_total = df.shape[0]
+    dorm_df = get_dorms(df)
+    count_dorm = dorm_df.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
+def percent_drug_related():
+    df = mongo_to_df()
+    df = clean_data(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "drug" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
+def percent_drug_related_dorm():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df = get_dorms(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "drug" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
+def percent_pot_related():
+    df = mongo_to_df()
+    df = clean_data(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "marijuana" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
+def percent_pot_related_dorm():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df = get_dorms(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "marijuana" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
+
+def percent_violence_related():
+    df = mongo_to_df()
+    df = clean_data(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "violence" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
+
+def percent_violence_related_dorm():
+    df = mongo_to_df()
+    df = clean_data(df)
+    df = get_dorms(df)
+    count_total = df.shape[0]
+    mask = df["offenses"].apply(lambda x: "violence" in x)
+    df1 = df[mask]
+    count_dorm = df1.shape[0]
+    return "{:.2f}%".format(float((count_dorm/count_total) *100))
 
