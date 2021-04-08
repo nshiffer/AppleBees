@@ -41,15 +41,17 @@ div.desc {
 }
 
 .box {
+  margin-top: 10px;
 	background: linear-gradient(#526494, #604484);
 	border-radius: 5px;
-	width: 300px;
+	width: 350px;
 }
 
 .box1 {
+  margin-top: 10px;
 	background: linear-gradient(#526494, #604484);
 	border-radius: 5px;
-	width: 300px;
+	width: 350px;
   height: 810px;
 }
 
@@ -57,11 +59,17 @@ div.desc {
   width: 300px;
   height: 200px;
   object-fit: contain;
+  padding: 30px;
 }
 
 .box img:hover{
   position: absolute;
   width: 600px;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
   height: 500px;
   justify-content: center;
 
