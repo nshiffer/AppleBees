@@ -7,10 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="80a33396-d85b-4557-9c78-0a7e419e94dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WatsonSearchInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/WatsonSearchInterface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +112,7 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -202,9 +199,10 @@
       <screen x="67" y="27" width="1853" height="910" />
     </state>
     <state x="720" y="198" width="536" height="566" key="VcsDiffUtil.ChangesDialog/67.27.1853.910@67.27.1853.910" timestamp="1612899825962" />
-    <state x="656" y="222" width="672" height="678" key="search.everywhere.popup" timestamp="1613500047922">
-      <screen x="67" y="27" width="1853" height="910" />
+    <state x="814" y="300" width="929" height="1044" key="search.everywhere.popup" timestamp="1618942048327">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="814" y="300" width="929" height="1044" key="search.everywhere.popup/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1618942048327" />
     <state x="656" y="222" width="672" height="678" key="search.everywhere.popup/67.27.1853.910@67.27.1853.910" timestamp="1613500047922" />
   </component>
 </project>
