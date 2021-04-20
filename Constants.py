@@ -3,7 +3,7 @@ AUTHENTICATION = 'ghODqOQRw_e9AHE4Eqg0QbcT6jdfLi9pBcS7xbSSY58Z'
 DISCOVERY_VERSION = '2021-01-31'
 WATSON_URL = 'https://api.us-east.discovery.watson.cloud.ibm.com/instances/7fc37f80-f2a5-4059-9db6-dbe6808abf9c'
 ENVIORNMENT_ID = '5401113d-17ca-48a1-8627-c534df11a1fb'
-COLLECTION_ID = 'd3e37d16-11f1-4be9-9db5-40b1f3f98c62'
+COLLECTION_ID = '0323c0ad-c25e-43df-beed-414594465682'
 
 
 # Database constants
