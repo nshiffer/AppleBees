@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+<script src="{{url_for('static', filename='sorttable.js')}}"></script>
 <nav class = "navbar">
             <a class="active" href="/" title="Data Table">Data Table</a>
             <a href="/plot" title="Statistics">Statistics</a>
@@ -37,7 +38,7 @@
 </form><br>
 <p></p>
 <div class="results">
-  <table style="width:100%">
+  <table style="width:100%" class="sortable">
     <col style="width:10%">
     <col style="width:15%">
     <col style="width:30%">
