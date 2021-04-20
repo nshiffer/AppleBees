@@ -22,7 +22,7 @@ class WatsonSearchInterface:
         queryResults = self.discovery.query(
             environment_id=Constants.ENVIORNMENT_ID,
             collection_id=Constants.COLLECTION_ID,
-            query=search,
+            natural_language_query=search,
             sort=field,
             count=300
         ).get_result()

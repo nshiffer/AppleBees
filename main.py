@@ -20,14 +20,13 @@ from database import Database
 import Constants
 from WatsonSearchInterface import WatsonSearchInterface
 
-
 server = Flask(__name__)
 
 nav = Nav(server)
 
 columnValues = Constants.columns
 
-plot_url=stats.test1()
+plot_url = stats.test1()
 plot_url1 = stats.test2()
 plot_url2 = stats.test3()
 plot_url3 = stats.test4()
@@ -39,7 +38,8 @@ dorm_drug = stats.percent_drug_related_dorm()
 dorm_pot = stats.percent_pot_related_dorm()
 dorm_violence = stats.percent_violence_related_dorm()
 
-@server.route('/',  methods=['GET', 'POST'])
+
+@server.route('/', methods=['GET', 'POST'])
 def main():
     db = Database()
     data = db.getTableData()
@@ -48,17 +48,23 @@ def main():
         crime = request.args.get('crime')
         option = request.args.get('options')
         if crime.endswith(":"):
-            crime = crime[:-1]
+            crime = crime.replace(":", " ")
+            print(crime)
         data = wi.createCrimeListObjects(crime, option)
         if len(data) == 0 and crime == 'all':
             data = wi.createCrimeListObjects(' ')
         return render_template('database.html', data=data)
-    return render_template('database.html', data = data)
+    return render_template('database.html', data=data)
+
 
 @server.route('/plot')
 def plot_png_drug():
-    return render_template("graph.html",plot_url=plot_url, plot_url1 = plot_url1, plot_url2 = plot_url2, plot_url3 = plot_url3, stat1 = stat1, stat2 = stat2, stat3 = stat3, stat4 = stat4, dorm_drug = dorm_drug, dorm_pot = dorm_pot, dorm_violence = dorm_violence)
-#here we define our menu items
+    return render_template("graph.html", plot_url=plot_url, plot_url1=plot_url1, plot_url2=plot_url2,
+                           plot_url3=plot_url3, stat1=stat1, stat2=stat2, stat3=stat3, stat4=stat4, dorm_drug=dorm_drug,
+                           dorm_pot=dorm_pot, dorm_violence=dorm_violence)
+
+
+# here we define our menu items
 topbar = Navbar('nav_b',
                 View('Data Table', 'main'),
                 View('Statistics', 'plot_png_drug')
