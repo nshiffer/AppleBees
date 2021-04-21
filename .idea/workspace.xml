@@ -17,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -37,6 +38,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -199,6 +201,18 @@
       <screen x="67" y="27" width="1853" height="910" />
     </state>
     <state x="720" y="198" width="536" height="566" key="VcsDiffUtil.ChangesDialog/67.27.1853.910@67.27.1853.910" timestamp="1612899825962" />
+    <state x="93" y="93" width="2375" height="1215" key="dock-window-3" timestamp="1619024322389">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="93" y="93" width="2375" height="1215" key="dock-window-3/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1619024322389" />
+    <state x="93" y="93" width="2375" height="1215" key="dock-window-4" timestamp="1619024322389">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="93" y="93" width="2375" height="1215" key="dock-window-4/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1619024322389" />
+    <state x="988" y="300" width="585" height="801" key="find.popup" timestamp="1619024888793">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="988" y="300" width="585" height="801" key="find.popup/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1619024888793" />
     <state x="814" y="300" width="929" height="1044" key="search.everywhere.popup" timestamp="1618942048327">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

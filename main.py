@@ -49,7 +49,6 @@ def main():
         option = request.args.get('options')
         if crime.endswith(":"):
             crime = crime.replace(":", " ")
-            print(crime)
         data = wi.createCrimeListObjects(crime, option)
         if len(data) == 0 and crime == 'all':
             data = wi.createCrimeListObjects(' ')
@@ -63,6 +62,17 @@ def plot_png_drug():
                            plot_url3=plot_url3, stat1=stat1, stat2=stat2, stat3=stat3, stat4=stat4, dorm_drug=dorm_drug,
                            dorm_pot=dorm_pot, dorm_violence=dorm_violence)
 
+@server.route('/crime/<string:crimeID>', methods=['get', 'post'])
+def edit(crimeID):
+    crime = crimeID[-5:]
+    wi = WatsonSearchInterface()
+    field = "title"
+    qry = wi.createCrimeListObjects(crime, field)
+    if len(qry) > 0:
+        info = qry[0]
+        return render_template('display_info.html', data=info)
+    else:
+        return f'error loading #{crimeID}'.format(crimeID=crimeID)
 
 # here we define our menu items
 topbar = Navbar('nav_b',

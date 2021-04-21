@@ -59,7 +59,7 @@
     </tr>
       {% for item in data %}
       <tr>
-        <td>{{item.crimeID}}</td>
+        <td><a class="link" style="font-weight:bold" href="/crime/{{item.crimeID}}" title="crimeID">{{item.crimeID}}</a></td>
         <td>{{item.reportDate}}</td>
         <td>{{"".join(item.offenses)}}</td>
         <td>{{item.location}}</td>

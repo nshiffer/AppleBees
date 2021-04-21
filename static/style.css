@@ -256,4 +256,23 @@ div.desc {
   background-color: #8b0000;
 }
 
+a.link {
+    color: #bb0000;
+    text-decoration: none;
+}
 
+a.link:visited {
+    color: #8b0000;
+    text-decoration: none;
+}
+
+a.link:hover {
+    color: #8b0000;
+    text-decoration: underline;
+}
+
+a.link:active {
+    color: #8b0000;
+    text-decoration: underline;
+
+}
