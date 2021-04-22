@@ -274,5 +274,63 @@ a.link:hover {
 a.link:active {
     color: #8b0000;
     text-decoration: underline;
+}
 
+
+/* RESOURCES */
+
+.resource div.contain{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* .resource div.buttons{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.resource div.intro-title{
+  font-size: 1.75em;
+}
+
+.resource a.button {
+  position: relative;
+  background: #bb0000;
+  padding: 1.5em;
+  color: white;
+  width: 40%;
+  float: left;
+  display: block;
+  border-radius: 4px;
+  margin: 10px;
+  font-size: 1.25em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left;
+  max-height: 90px;
+  text-decoration: none;
+}
+
+.resource a:hover {
+  background-color: #8b0000;
+}
+
+.resource a:after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 2px solid;
+  border-color: white;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-left: 0;
+  border-bottom: 0;
+  margin-top: 5px;
+  margin-left: 5px;
 }

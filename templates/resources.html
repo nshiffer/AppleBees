@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block body %}
+<nav class="navbar">
+  <a href="/" title="Data Table">Data Table</a>
+  <a href="/plot" title="Statistics">Statistics</a>
+  <a class="active" href="/resources" title="Resources">Resources</a>
+  <form
+    class="navsearch"
+    method="GET"
+    action="/"
+    style="margin: auto; max-width: 900px"
+  >
+    <select id="options" name="options">
+      <option value="text">Crime</option>
+      <option value="title">Number</option>
+      <option value="question">Date</option>
+      <option value="subtitle">Location</option>
+      <option value="author">Status</option>
+    </select>
+    <input
+      type="text"
+      placeholder="Search a crime related topic"
+      name="crime"
+    />
+    <input type="submit" value="search" />
+  </form>
+</nav>
+
+<section class="resource">
+    <div class="contain">
+        <div class="intro-title">
+            <h2>
+                Here are the available resources at Ohio State
+            </h2>
+        </div>
+        <div class="buttons">
+            <a class="button" href="https://titleix.osu.edu/navigation/report-incident/report-incident.html">Report an Incident</a>
+            <a class="button" href="https://titleix.osu.edu/navigation/get-help/confidential-support.html">Confidential Support</a>
+            <a class="button" href="https://titleix.osu.edu/navigation/help-someone-else.html">Help Someone Else</a>
+            <a class="button" href="https://titleix.osu.edu/navigation/additional-help.html">Other Support Resources</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

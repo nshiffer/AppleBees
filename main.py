@@ -74,9 +74,14 @@ def edit(crimeID):
     else:
         return f'error loading #{crimeID}'.format(crimeID=crimeID)
 
+@server.route('/resources')
+def resource():
+    return render_template("resources.html")
+
 # here we define our menu items
 topbar = Navbar('nav_b',
                 View('Data Table', 'main'),
-                View('Statistics', 'plot_png_drug')
+                View('Statistics', 'plot_png_drug'),
+                View('Resources', 'resource')
                 )
 nav.register_element('nav_bar', topbar)
