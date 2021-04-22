@@ -45,7 +45,7 @@ class WatsonInterface:
                         "\\d{2}/\\d{2}/\\d{2} \\d{2}:\\d{2}",
                         query["results"][i]["question"][0])
                     print(f'Dates: {dates}')
-                    
+
                     # Some crimes would have a '_' to separate the crime from the details
                     # Removed to make data more pure and easier for the user to read
                      # Some crimes would have a '_' to separate the crime from the details
@@ -53,17 +53,17 @@ class WatsonInterface:
                     matchIndex = []
                     for match in re.finditer(r'_', query["results"][i]["text"]):
                         matchIndex.append(match.end()-1)
-                    
+
                     offenseCleansed = query["results"][i]["text"].replace('_', '')
                     for i in range(len(matchIndex)):
                         offenseCleansed = offenseCleansed[:matchIndex[i]-1] + offenseCleansed[matchIndex[i]:]
                         matchIndex[:] = [match-1 for match in matchIndex]
-                    
+
 
                     # Some crimes have multiple offenses which are usually separated by ';' character
                     # This is not guaranteed as formatting is a bit different for
                     # some crime reports
-                    
+
                     offenseList = (offenseCleansed).split(';')
                     for i in range(len(offenseList)):
                         if offenseList[i][0] == ' ':
@@ -103,22 +103,21 @@ class WatsonInterface:
                     matchIndex = []
                     for match in re.finditer(r'_', query["results"][i]["text"]):
                         matchIndex.append(match.end()-1)
-                    
+
                     offenseCleansed = query["results"][i]["text"].replace('_', '')
-                    for i in range(len(matchIndex)):
-                        offenseCleansed = offenseCleansed[:matchIndex[i]-1] + offenseCleansed[matchIndex[i]:]
+                    for j in range(len(matchIndex)):
+                        offenseCleansed = offenseCleansed[:matchIndex[j]-1] + offenseCleansed[matchIndex[j]:]
                         matchIndex[:] = [match-1 for match in matchIndex]
-                    
+
 
                     # Some crimes have multiple offenses which are usually separated by ';' character
                     # This is not guaranteed as formatting is a bit different for
                     # some crime reports
-                    
-                    offenseList = (offenseCleansed).split(';')
-                    for i in range(len(offenseList)):
-                        if offenseList[i][0] == ' ':
-                            offenseList[i] = offenseList[i].replace(' ', '', 1)
 
+                    offenseList = (offenseCleansed).split(';')
+                    for j in range(len(offenseList)):
+                        if offenseList[j][0] == ' ':
+                            offenseList[j] = offenseList[j  ].replace(' ', '', 1)
                     location = query["results"][i]["subtitle"][0]
                     disposition = query["results"][i]["author"][0]
                     crime = CrimeReport(
@@ -129,7 +128,8 @@ class WatsonInterface:
                         offenseList,
                         location,
                         disposition)
-                    crimeObjects.append(crime)
+                    if len(query["results"][i]["title"]) == 1:
+                        crimeObjects.append(crime)
                 except KeyError:
                     print("Watson Error in formating")
 

@@ -35,6 +35,8 @@ class Database:
         self.collection.remove()
 
     def getTableData(self):
-        df =  pd.DataFrame(list(self.collection.find({})))
-        del df['_id']
-        return list(self.collection.find({}))
+        values = list(self.collection.find({}))
+        for item in values:
+            for i in range(0, len(item["offenses"])):
+                item["offenses"][i] = item["offenses"][i].replace("_", "")
+        return values

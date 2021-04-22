@@ -19,11 +19,14 @@ from dash.dependencies import Input, Output
 from database import Database
 import Constants
 from WatsonSearchInterface import WatsonSearchInterface
+import time
+import atexit
+from apscheduler.schedulers.background import BackgroundScheduler
 
 server = Flask(__name__)
 
 nav = Nav(server)
-
+db = Database()
 columnValues = Constants.columns
 
 plot_url = stats.test1()
@@ -37,6 +40,16 @@ stat4 = stats.percent_violence_related()
 dorm_drug = stats.percent_drug_related_dorm()
 dorm_pot = stats.percent_pot_related_dorm()
 dorm_violence = stats.percent_violence_related_dorm()
+
+
+def updateDB():
+    print("Updating database...")
+    db.processCrimeReport()
+
+db.processCrimeReport()
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=updateDB, trigger="interval", days=1)
+scheduler.start()
 
 
 @server.route('/', methods=['GET', 'POST'])
