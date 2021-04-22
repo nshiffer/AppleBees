@@ -286,15 +286,13 @@ a.link:active {
   transform: translate(-50%, -50%);
 }
 
-/* .resource div.buttons{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
 .resource div.intro-title{
-  font-size: 1.75em;
+  color: white;
+  font-size: 1.55em;
+  background: #333;
+  width: 95%;
+  padding: 1.5em 1em 1.5em;
+  top: 10%;
 }
 
 .resource a.button {
