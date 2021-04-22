@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<nav class = "navbar">
+            <a href="/" title="Data Table">Data Table</a>
+            <a href="/plot" title="Statistics">Statistics</a>
+            <form class="navsearch" method="GET" action="/" style="margin:auto;max-width:900px">
+              <select id="options" name="options">
+                <option value="text">Crime</option>
+                <option value="title">Number</option>
+                <option value="question">Date</option>
+                <option value="subtitle">Location</option>
+                <option value="author">Status</option>
+              </select>
+                <input type="text" placeholder="Search a crime related topic" name="crime">
+                <input type="submit" value="search">
+            </form>
+</nav>
+
+<h1>{{data.crimeID}}</h1>
+
+<p><b>Report Date:</b> {{data.reportDate}}</p>
+<p><b>Offenses:</b> {{"".join(data.offenses)}}</p>
+<p><b>Location:</b> {{data.location}}</p>
+<p><b>Crime Start:</b> {{data.crimeStart}}</p>
+{% if data.crimeEnd%}
+    <p><b>Crime End:</b>{{data.crimeEnd}}</p>
+{% else %}
+    <p><b>Crime End:</b> Unknown</p>
+{% endif %}
+<p><b>Disposition:</b> {{data.disposition}}</p>
+
+{% endblock %}
